@@ -12,6 +12,8 @@ const app = express();
 app.use(morgan('dev'))
 app.use(express.json())
 
+app.use(express.static('public'))
+
 // home page
 app.get('/', (req, res) => {
    res.send('This is CRUD API.')
@@ -118,6 +120,12 @@ app.delete('/api/users/id/:id', (req, res) => {
         Docs.splice(index, 1);
         res.send('User Deleted.')
     }
+})
+
+// ---------------------------------------------------------------------
+// ---------------------------------------------------------------------
+app.get('/Postman', (req, res) => {
+    res.sendFile(__dirname + '/Client.html')
 })
 
 app.listen(3000, () => {
