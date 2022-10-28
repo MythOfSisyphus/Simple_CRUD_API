@@ -14,7 +14,7 @@ app.use(express.json())
 
 // app.use(express.urlencoded({extended: true}))
 
-// app.use(express.static('public'))
+app.use(express.static('public'))
 
 // home page
 app.get('/', (req, res) => {
@@ -126,9 +126,9 @@ app.delete('/api/users/id/:id', (req, res) => {
 
 // ---------------------------------------------------------------------
 // ---------------------------------------------------------------------
-// app.get('/Postman', (req, res) => {
-//     res.sendFile(__dirname + '/Client.html')
-// })
+app.get('/Postman', (req, res) => {
+    res.sendFile(__dirname + '/Client.html')
+})
 
 app.listen(3000, () => {
     console.log(`server running at http://localhost:3000`);
