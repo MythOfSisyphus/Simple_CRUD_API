@@ -12,7 +12,9 @@ const app = express();
 app.use(morgan('dev'))
 app.use(express.json())
 
-app.use(express.static('public'))
+// app.use(express.urlencoded({extended: true}))
+
+// app.use(express.static('public'))
 
 // home page
 app.get('/', (req, res) => {
@@ -54,7 +56,7 @@ if you don't wanna use it there is another method
 just make an instance for 'Docs' like ' let Data = JSON.parse(Docs)' then push the newUser in Data then return using JSON.stringify() method.
 */
 app.post('/api/users', (req, res) => {
-    let reqbody = req.body;
+    // let reqbody = req.body;
 
     // console.log(reqbody.name);
     // res.send(reqbody)
@@ -124,9 +126,9 @@ app.delete('/api/users/id/:id', (req, res) => {
 
 // ---------------------------------------------------------------------
 // ---------------------------------------------------------------------
-app.get('/Postman', (req, res) => {
-    res.sendFile(__dirname + '/Client.html')
-})
+// app.get('/Postman', (req, res) => {
+//     res.sendFile(__dirname + '/Client.html')
+// })
 
 app.listen(3000, () => {
     console.log(`server running at http://localhost:3000`);
